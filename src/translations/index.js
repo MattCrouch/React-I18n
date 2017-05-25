@@ -25,8 +25,6 @@ export function getTranslations(languageCode) {
     const language = getLanguage(code);
     const withVariants = language + '-' + getVariants(code).join('-');
 
-    console.log(withVariants);
-
     switch(language) {
         case 'en':
             if(withVariants === 'en-gb') {
