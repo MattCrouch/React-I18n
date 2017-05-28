@@ -14,4 +14,7 @@ export default {
     'Products.londonByNight.description': 'Find a different side to the capital at night with its many bars and nightclubs',
     'Product.addToBasket': 'Add to Basket',
     'Product.removeFromBasket': 'Remove from Basket',
+    'BasketView.item': 'Item',
+    'BasketView.price': 'Price',
+    'BasketView.emptyBasket': 'Your basket is empty',
 };

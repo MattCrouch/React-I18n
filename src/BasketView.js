@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { FormattedNumber } from 'react-intl';
+import { FormattedMessage, FormattedNumber } from 'react-intl';
 
 import Button from './Button';
 import './BasketView.css';
@@ -15,13 +15,31 @@ class BasketView extends Component {
       <table className="BasketView_items">
         <thead>
           <tr>
-            <th>Item</th>
-            <th className="price">Price</th>
+            <th>
+              <FormattedMessage
+                id='BasketView.item'
+                description='Label for the item in the basket'
+                defaultMessage='Item'
+              />
+            </th>
+            <th className="price">
+              <FormattedMessage
+                id='BasketView.price'
+                description='Label for the price of an item in the basket'
+                defaultMessage='Total'
+              />
+            </th>
           </tr>
         </thead>
         <tfoot>
           <tr>
-            <td>Total</td>
+            <td>
+              <FormattedMessage
+                id='BasketView.total'
+                description='Label for the total value of the basket'
+                defaultMessage='Total'
+              />
+            </td>
             <td className="price">
               <FormattedNumber
                 value={this.props.totalCost}
@@ -62,7 +80,11 @@ class BasketView extends Component {
     if(this.props.basket.length > 0) {
       basket = this.showBasket();
     } else {
-      basket = <span>Your basket is empty</span>
+      basket = <FormattedMessage
+        id='BasketView.emptyBasket'
+        description='The user has an empty basket'
+        defaultMessage='Your basket is empty'
+      />
     }
 
     return (

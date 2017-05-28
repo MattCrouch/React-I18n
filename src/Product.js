@@ -80,8 +80,8 @@ Product.PropTypes = {
 }
 
 Product.defaultProps = {
-  name: "Product Name",
-  description: "Product Description",
+  name: undefined,
+  description: undefined,
   date: new Date(),
   price: 0,
   inBasket: false,
