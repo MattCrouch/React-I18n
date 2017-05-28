@@ -9,6 +9,47 @@ class BasketView extends Component {
   constructor() {
     super();
   }
+
+  showBasket() {
+    return (
+      <table className="BasketView_items">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th className="price">Price</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <td>Total</td>
+            <td className="price">
+              <FormattedNumber
+                value={this.props.totalCost}
+                style="currency"
+                currency={this.props.currency}
+              />
+            </td>
+          </tr>
+        </tfoot>
+        <tbody>
+          { this.props.basket.map(item => (
+            <tr key={item.id}>
+              <td>
+                {item.name}
+              </td>
+              <td className="price">
+                <FormattedNumber
+                  value={item.price}
+                  style="currency"
+                  currency={this.props.currency}
+                />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    )
+  }
   
   render() {
     const showStyle = {};
@@ -17,46 +58,18 @@ class BasketView extends Component {
       showStyle.display = "block";
     }
 
+    let basket;
+    if(this.props.basket.length > 0) {
+      basket = this.showBasket();
+    } else {
+      basket = <span>Your basket is empty</span>
+    }
+
     return (
       <div className="BasketView" style={showStyle}>
         <div className="BasketView_container">
           <Button className="BasketView_close" onClick={this.props.toggleVisibility}>&#10006;</Button>
-          <table className="BasketView_items">
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th className="price">Price</th>
-              </tr>
-            </thead>
-            <tfoot>
-              <tr>
-                <td>Total</td>
-                <td className="price">
-                  <FormattedNumber
-                    value={this.props.totalCost}
-                    style="currency"
-                    currency={this.props.currency}
-                  />
-                </td>
-              </tr>
-            </tfoot>
-            <tbody>
-              { this.props.basket.map(item => (
-                <tr key={item.id}>
-                  <td>
-                    {item.name}
-                  </td>
-                  <td className="price">
-                    <FormattedNumber
-                      value={item.price}
-                      style="currency"
-                      currency={this.props.currency}
-                    />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          { basket }
         </div>
       </div>
     );
