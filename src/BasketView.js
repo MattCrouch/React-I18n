@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage, FormattedNumber } from 'react-intl';
+import { injectIntl, defineMessages, FormattedMessage, FormattedNumber } from 'react-intl';
 
 import Button from './Button';
 import './BasketView.css';
 
+const messages = defineMessages({
+  close: {
+    id: 'BasketView.close',
+    description: 'Alternative Text for closing the basket window',
+    defaultMessage: 'Close',
+  }
+})
+
 class BasketView extends Component {
   constructor() {
     super();
+  }
+
+  componentDidMount() {
+    this.close.focus();
   }
 
   showBasket() {
@@ -70,12 +82,6 @@ class BasketView extends Component {
   }
   
   render() {
-    const showStyle = {};
-
-    if(this.props.show) {
-      showStyle.display = "block";
-    }
-
     let basket;
     if(this.props.basket.length > 0) {
       basket = this.showBasket();
@@ -89,10 +95,18 @@ class BasketView extends Component {
 
     return (
       <div>
-        <div className="BasketView_overlay" style={showStyle} onClick={this.props.toggleVisibility}></div>
-        <div className="BasketView" style={showStyle}>
+        <div className="BasketView_overlay" onClick={this.props.toggleVisibility}></div>
+        <div className="BasketView" role="dialog" aria-labelledby="BasketView_heading">
           <div className="BasketView_container">
-            <Button className="BasketView_close" onClick={this.props.toggleVisibility}>&#10006;</Button>
+            <h2 id="BasketView_heading">Basket</h2>
+            <Button
+              className="BasketView_close"
+              ref={(button) => { this.close = button; }}
+              onClick={this.props.toggleVisibility}
+              aria-label={this.props.intl.formatMessage(messages.close)}
+            >
+              &#10006;
+            </Button>
             { basket }
           </div>
         </div>
@@ -113,4 +127,4 @@ BasketView.defaultProps = {
   show: true
 }
 
-export default BasketView;
+export default injectIntl(BasketView);

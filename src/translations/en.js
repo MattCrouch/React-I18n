@@ -13,8 +13,13 @@ export default {
     'Products.londonByNight.name': 'London By Night',
     'Products.londonByNight.description': 'Find a different side to the capital at night with its many bars and nightclubs',
     'Product.addToBasket': 'Add to Basket',
+    'Product.addItemToBasket': 'Add {item} to Basket',
     'Product.removeFromBasket': 'Remove from Basket',
+    'Product.removeItemFromBasket': 'Remove {item} from Basket',
+    'Basket.basketValue': 'Basket Total {total}',
+    'BasketView.close': 'Close',
     'BasketView.item': 'Item',
     'BasketView.price': 'Price',
+    'BasketView.total': 'Total',
     'BasketView.emptyBasket': 'Your basket is empty',
 };

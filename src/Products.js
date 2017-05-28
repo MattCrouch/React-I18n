@@ -5,9 +5,9 @@ import './Products.css';
 class Products extends Component {
   render() {
     return (
-        <div className="Products">
+        <main className="Products">
             { this.props.children }
-        </div>
+        </main>
     );
   }
 }

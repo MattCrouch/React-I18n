@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage, FormattedNumber, FormattedDate } from 'react-intl';
+import { injectIntl, defineMessages, FormattedMessage, FormattedNumber, FormattedDate } from 'react-intl';
 
 import Button from './Button';
 import './Product.css';
+
+const messages = defineMessages({
+  addItemToBasket: {
+    id: 'Product.addItemToBasket',
+    description: 'Label text for adding a named item to the basket',
+    defaultMessage: 'Add {item} to Basket',
+  },
+  removeItemFromBasket: {
+    id: 'Product.removeItemFromBasket',
+    description: 'Label text for removing a named item from the basket',
+    defaultMessage: 'Remove {item} from Basket',
+  }
+})
 
 class Product extends Component {
   render() {
@@ -15,7 +28,13 @@ class Product extends Component {
 
     if(this.props.inBasket) {
       basketButton = (
-        <Button onClick={this.props.removeFromBasket}>
+        <Button
+          onClick={this.props.removeFromBasket}
+          aria-label={this.props.intl.formatMessage(
+            messages.removeItemFromBasket, {
+              item: this.props.name
+            }
+          )}>
           <FormattedMessage
             id='Product.removeFromBasket'
             description='Button for remove a product from a basket'
@@ -25,7 +44,15 @@ class Product extends Component {
       );
     } else {
       basketButton = (
-        <Button type="primary" onClick={this.props.addToBasket}>
+        <Button
+          type="primary"
+          onClick={this.props.addToBasket}
+          aria-label={this.props.intl.formatMessage(
+            messages.addItemToBasket, {
+              item: this.props.name
+            }
+          )}
+          >
           <FormattedMessage
             id='Product.addToBasket'
             description='Button for adding a product to a basket'
@@ -36,8 +63,8 @@ class Product extends Component {
     }
 
     return (
-        <div className="Product">
-            <div className="Product_image" role="img" style={styles}></div>
+        <section className="Product">
+            <div className="Product_image" style={styles}></div>
             <div className="Product_info">
               <h2>{this.props.name}</h2>
               <p>{this.props.description}</p>
@@ -65,7 +92,7 @@ class Product extends Component {
                 { basketButton }
               </div>
             </div>
-        </div>
+        </section>
     );
   }
 }
@@ -87,4 +114,4 @@ Product.defaultProps = {
   inBasket: false,
 }
 
-export default Product;
+export default injectIntl(Product);

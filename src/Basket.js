@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { FormattedNumber } from 'react-intl';
+import { injectIntl, defineMessages, FormattedNumber } from 'react-intl';
 
 import BasketView from './BasketView';
 import Button from './Button';
 import './Basket.css';
+
+const messages = defineMessages({
+  basketValue: {
+    id: 'Basket.basketValue',
+    description: 'Alternative Text for basket button',
+    defaultMessage: 'Basket Total {total}',
+  }
+})
 
 class Basket extends Component {
   constructor() {
@@ -28,16 +36,9 @@ class Basket extends Component {
   }
   
   render() {
-    return (
-      <div>
-        <Button onClick={this.toggleVisibility}>
-          <FormattedNumber
-            value={this.getTotalCost()}
-            style="currency"
-            currency={this.props.currency}
-          />
-        </Button>
-
+    let basketView;
+    if(this.state.showBasket) {
+      basketView = (
         <BasketView
           show={this.state.showBasket}
           basket={this.props.basket}
@@ -45,6 +46,26 @@ class Basket extends Component {
           totalCost={this.getTotalCost()}
           toggleVisibility={this.toggleVisibility}
         />
+      );
+    }
+
+    return (
+      <div>
+        <Button onClick={this.toggleVisibility}
+          aria-label={this.props.intl.formatMessage(
+            messages.basketValue, {
+              total: this.props.intl.formatNumber(this.getTotalCost(), {style: 'currency', currency: this.props.currency})
+            }
+          )}
+        >
+          <FormattedNumber
+            value={this.getTotalCost()}
+            style="currency"
+            currency={this.props.currency}
+          />
+        </Button>
+        
+        { basketView }
       </div>
     );
   }
@@ -59,4 +80,4 @@ Basket.defaultProps = {
   currency: "GBP"
 }
 
-export default Basket;
+export default injectIntl(Basket);
