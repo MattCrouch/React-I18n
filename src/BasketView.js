@@ -1,3 +1,4 @@
+/* eslint react/style-prop-object: 0 */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl, defineMessages, FormattedMessage, FormattedNumber } from 'react-intl';
@@ -14,10 +15,6 @@ const messages = defineMessages({
 })
 
 class BasketView extends Component {
-  constructor() {
-    super();
-  }
-
   componentDidMount() {
     this.close.focus();
   }
