@@ -66,10 +66,13 @@ class BasketView extends Component {
     }
 
     return (
-      <div className="BasketView" style={showStyle}>
-        <div className="BasketView_container">
-          <Button className="BasketView_close" onClick={this.props.toggleVisibility}>&#10006;</Button>
-          { basket }
+      <div>
+        <div className="BasketView_overlay" style={showStyle} onClick={this.props.toggleVisibility}></div>
+        <div className="BasketView" style={showStyle}>
+          <div className="BasketView_container">
+            <Button className="BasketView_close" onClick={this.props.toggleVisibility}>&#10006;</Button>
+            { basket }
+          </div>
         </div>
       </div>
     );
