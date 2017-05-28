@@ -66,6 +66,7 @@ class App extends Component {
     this.removeFromBasket = this.removeFromBasket.bind(this);
     
     this.state = {
+      currency: "GBP",
       basket: [],
       productList: [
         {
@@ -73,7 +74,6 @@ class App extends Component {
           name: props.intl.formatMessage(messages.riverTour),
           description: props.intl.formatMessage(messages.riverTourDescription),
           eventDate: new Date(),
-          currency: "GBP",
           price: 24,
           image: "/photos/river-tour.jpg"
         },
@@ -82,7 +82,6 @@ class App extends Component {
           name: props.intl.formatMessage(messages.busTour),
           description: props.intl.formatMessage(messages.busTourDescription),
           eventDate: new Date(),
-          currency: "GBP",
           price: 12,
           image: "/photos/bus-tour.jpg"
         },
@@ -91,7 +90,6 @@ class App extends Component {
           name: props.intl.formatMessage(messages.shard),
           description: props.intl.formatMessage(messages.shardDescription),
           eventDate: new Date(),
-          currency: "GBP",
           price: 15.99,
           image: "/photos/night-in-the-shard.jpg"
         },
@@ -100,7 +98,6 @@ class App extends Component {
           name: props.intl.formatMessage(messages.londonEye),
           description: props.intl.formatMessage(messages.londonEyeDescription),
           eventDate: new Date(),
-          currency: "GBP",
           price: 400,
           image: "/photos/london-eye.jpg"
         },
@@ -109,7 +106,6 @@ class App extends Component {
           name: props.intl.formatMessage(messages.museumHopper),
           description: props.intl.formatMessage(messages.museumHopperDescription),
           eventDate: new Date(),
-          currency: "GBP",
           price: 19.99,
           image: "/photos/museum-hopper.jpg"
         },
@@ -118,7 +114,6 @@ class App extends Component {
           name: props.intl.formatMessage(messages.londonByNight),
           description: props.intl.formatMessage(messages.londonByNightDescription),
           eventDate: new Date(),
-          currency: "GBP",
           price: 14.99,
           image: "/photos/london-by-night.jpg"
         }
@@ -149,10 +144,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header basket={this.state.basket} />
+        <Header basket={this.state.basket} currency={this.props.currency} />
 
         <Products>
-          
           {Object.keys(this.state.productList).map(index => {
             const product = this.state.productList[index];
             return (
@@ -161,7 +155,7 @@ class App extends Component {
                 image={product.image}
                 name={product.name}
                 description={product.description}
-                currency={product.currency}
+                currency={this.state.currency}
                 price={product.price}
                 addToBasket={() => this.addToBasket(product.id)}
                 removeFromBasket={() => this.removeFromBasket(product.id)}
@@ -169,7 +163,6 @@ class App extends Component {
               />
             )
           })}
-          
         </Products>
 
         <Footer />

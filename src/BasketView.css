@@ -1,0 +1,39 @@
+.BasketView {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  max-height: 100%;
+  width: calc(100% - 2rem);
+  background-color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem;
+  display: none;
+}
+
+.BasketView_container {
+  position: relative;
+}
+
+.BasketView_close {
+  font-size: 0.75rem;
+  position: absolute;
+  top: -2rem;
+  right: -2rem;
+}
+
+.BasketView_items {
+  width: 100%;
+}
+
+.BasketView_items thead {
+  text-align: left;
+}
+
+.BasketView_items tfoot {
+  font-weight: bold;
+}
+
+.BasketView_items .price {
+  text-align: right;
+}
