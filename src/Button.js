@@ -7,7 +7,7 @@ import './Button.css';
 class Button extends Component {
   render() {
     return (
-        <button className={`Button ${this.props.type ? this.props.type : ''}`}>
+        <button className={`Button ${this.props.type ? this.props.type : ''}`} onClick={this.props.onClick}>
             { this.props.children }
         </button>
     );
@@ -15,11 +15,13 @@ class Button extends Component {
 }
 
 Button.propTypes = {
-    type: PropTypes.string
+    type: PropTypes.string,
+    onClick: PropTypes.func
 }
 
 Button.defaultProps = {
-    type: undefined
+    type: undefined,
+    onClick: undefined
 }
 
 export default Button;

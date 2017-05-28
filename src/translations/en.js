@@ -1,3 +1,17 @@
 export default {
-    "Header.greeting": "lol"
+    'Header.companyName': 'London Tours',
+    'Products.riverTour.name': 'River Tour',
+    'Products.riverTour.description': 'See the capital from a unique perspective',
+    'Products.busTour.name': 'Bus Tour',
+    'Products.busTour.description': 'Discover everything the city has to offer with an all day pass',
+    'Products.shard.name': 'Night in the Shard',
+    'Products.shard.description': 'Reach new heights and see London sparkle',
+    'Products.londonEye.name': 'Private Trip on the London Eye',
+    'Products.londonEye.description': 'Scan the London skyline in your own personal capsule',
+    'Products.museumHopper.name': 'Must-see Museum Hopper',
+    'Products.museumHopper.description': 'Take in the culture at London\'s top attractions',
+    'Products.londonByNight.name': 'London By Night',
+    'Products.londonByNight.description': 'Find a different side to the capital at night with its many bars and nightclubs',
+    'Product.addToBasket': 'Add to Basket',
+    'Product.removeFromBasket': 'Remove from Basket',
 };

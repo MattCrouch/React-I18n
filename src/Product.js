@@ -11,6 +11,30 @@ class Product extends Component {
       backgroundImage: `url(${this.props.image})`
     }
 
+    let basketButton;
+
+    if(this.props.inBasket) {
+      basketButton = (
+        <Button onClick={this.props.removeFromBasket}>
+          <FormattedMessage
+            id='Product.removeFromBasket'
+            description='Button for remove a product from a basket'
+            defaultMessage='Remove from Basket'
+          />
+        </Button>
+      );
+    } else {
+      basketButton = (
+        <Button type="primary" onClick={this.props.addToBasket}>
+          <FormattedMessage
+            id='Product.addToBasket'
+            description='Button for adding a product to a basket'
+            defaultMessage='Add to Basket'
+          />
+        </Button>
+      );
+    }
+
     return (
         <div className="Product">
             <div className="Product_image" role="img" style={styles}></div>
@@ -38,13 +62,7 @@ class Product extends Component {
               </span>
 
               <div className="Product_actions">
-                <Button type="primary">
-                  <FormattedMessage
-                    id='Product.addToBasket'
-                    description='Button for adding a product to a basket'
-                    defaultMessage='Add to Basket'
-                  />
-                </Button>
+                { basketButton }
               </div>
             </div>
         </div>
@@ -55,14 +73,18 @@ class Product extends Component {
 Product.PropTypes = {
   name: PropTypes.string,
   description: PropTypes.string,
-  date: PropTypes.objectOf(PropTypes.date)
+  date: PropTypes.objectOf(PropTypes.date),
+  addToBasket: PropTypes.func.isRequired,
+  removeFromBasket: PropTypes.func.isRequired,
+  inBasket: PropTypes.bool
 }
 
 Product.defaultProps = {
   name: "Product Name",
   description: "Product Description",
   date: new Date(),
-  price: 0
+  price: 0,
+  inBasket: false,
 }
 
 export default Product;

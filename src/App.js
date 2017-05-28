@@ -61,10 +61,15 @@ const messages = defineMessages({
 class App extends Component {
   constructor(props) {
     super();
+
+    this.addToBasket = this.addToBasket.bind(this);
+    this.removeFromBasket = this.removeFromBasket.bind(this);
+    
     this.state = {
       basket: [],
-      productList: {
-        1: {
+      productList: [
+        {
+          id: 1,
           name: props.intl.formatMessage(messages.riverTour),
           description: props.intl.formatMessage(messages.riverTourDescription),
           eventDate: new Date(),
@@ -72,7 +77,8 @@ class App extends Component {
           price: 24,
           image: "/photos/river-tour.jpg"
         },
-        2: {
+        {
+          id: 2,
           name: props.intl.formatMessage(messages.busTour),
           description: props.intl.formatMessage(messages.busTourDescription),
           eventDate: new Date(),
@@ -80,7 +86,8 @@ class App extends Component {
           price: 12,
           image: "/photos/bus-tour.jpg"
         },
-        3: {
+        {
+          id: 3,
           name: props.intl.formatMessage(messages.shard),
           description: props.intl.formatMessage(messages.shardDescription),
           eventDate: new Date(),
@@ -88,7 +95,8 @@ class App extends Component {
           price: 15.99,
           image: "/photos/night-in-the-shard.jpg"
         },
-        4: {
+        {
+          id: 4,
           name: props.intl.formatMessage(messages.londonEye),
           description: props.intl.formatMessage(messages.londonEyeDescription),
           eventDate: new Date(),
@@ -96,7 +104,8 @@ class App extends Component {
           price: 400,
           image: "/photos/london-eye.jpg"
         },
-        5: {
+        {
+          id: 5,
           name: props.intl.formatMessage(messages.museumHopper),
           description: props.intl.formatMessage(messages.museumHopperDescription),
           eventDate: new Date(),
@@ -104,7 +113,8 @@ class App extends Component {
           price: 19.99,
           image: "/photos/museum-hopper.jpg"
         },
-        6: {
+        {
+          id: 6,
           name: props.intl.formatMessage(messages.londonByNight),
           description: props.intl.formatMessage(messages.londonByNightDescription),
           eventDate: new Date(),
@@ -112,18 +122,52 @@ class App extends Component {
           price: 14.99,
           image: "/photos/london-by-night.jpg"
         }
-      }
+      ]
     }
   }
+
+  addToBasket(id) {
+    const product = this.state.productList.find(product => product.id === id);
+
+    if(product) {
+      this.setState(prevState => {
+        return {
+          basket: [...prevState.basket, product]
+        }
+      })
+    }
+  }
+
+  removeFromBasket(id) {
+    this.setState(prevState => {
+      return {
+        basket: prevState.basket.filter(item => item.id !== id)
+      }
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <Header basket={this.state.basket} />
 
         <Products>
-          {Object.keys(this.state.productList).map(id => {
-            const product = this.state.productList[id];
-            return <Product key={id} image={product.image} name={product.name} description={product.description} currency={product.currency} price={product.price} />
+          
+          {Object.keys(this.state.productList).map(index => {
+            const product = this.state.productList[index];
+            return (
+              <Product
+                key={product.id}
+                image={product.image}
+                name={product.name}
+                description={product.description}
+                currency={product.currency}
+                price={product.price}
+                addToBasket={() => this.addToBasket(product.id)}
+                removeFromBasket={() => this.removeFromBasket(product.id)}
+                inBasket={this.state.basket.filter(item => item.id === product.id).length > 0}
+              />
+            )
           })}
           
         </Products>

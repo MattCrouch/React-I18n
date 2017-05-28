@@ -6,12 +6,20 @@ import Button from './Button';
 import './Basket.css';
 
 class Basket extends Component {
+  constructor() {
+    super();
+    this.getTotalCost = this.getTotalCost.bind(this);
+  }
+  getTotalCost() {
+    return this.props.basket.reduce((acc, item) => acc + item.price, 0);
+  }
+
   render() {
     return (
         <div>
           <Button>
             <FormattedNumber
-              value={0}
+              value={this.getTotalCost()}
               style="currency"
               currency={this.props.currency}
             />
