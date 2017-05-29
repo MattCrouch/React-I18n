@@ -1,6 +1,7 @@
 import en from './en';
 import enGb from './en-gb';
 import fr from './fr';
+import es from './es';
 
 function getSubtags(languageCode) {
     return languageCode.split('-');
@@ -38,6 +39,8 @@ export function getTranslations(languageCode) {
             return en;
         case 'fr':
             return fr;
+        case 'es':
+            return es;
         default:
             return false;
     }

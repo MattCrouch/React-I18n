@@ -35,7 +35,7 @@ class BasketView extends Component {
               <FormattedMessage
                 id="BasketView.price"
                 description="Label for the price of an item in the basket"
-                defaultMessage="Total"
+                defaultMessage="Price"
               />
             </th>
           </tr>

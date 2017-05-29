@@ -11,11 +11,10 @@ filenames.forEach(function(filename) {
   const json = JSON.parse(file);
 
   json.forEach(function(translation) {
+    console.log('Found', translation.id);
     translations[translation.id] = translation.description;
   });
 });
-
-console.log(translations);
 
 output = output + JSON.stringify(translations, null, '\t');
 
