@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
 
-import './Button.css';
+import "./Button.css";
 
 class Button extends Component {
   focus() {
@@ -12,10 +12,9 @@ class Button extends Component {
   render() {
     return (
       <button
-        className={`Button ${this.props.type ? this.props.type : ''} ${this.props.className ? this.props.className : ''}`}
+        className={`Button ${this.props.type ? this.props.type : ""} ${this.props.className ? this.props.className : ""}`}
         onClick={this.props.onClick}
-        aria-label={this.props['aria-label']}
-      >
+        aria-label={this.props["aria-label"]}>
         { this.props.children }
       </button>
     );
@@ -25,13 +24,13 @@ class Button extends Component {
 Button.propTypes = {
   type: PropTypes.string,
   onClick: PropTypes.func,
-  'aria-label': PropTypes.string,
+  "aria-label": PropTypes.string,
 }
 
 Button.defaultProps = {
   type: undefined,
   onClick: undefined,
-  'aria-label': undefined,
+  "aria-label": undefined,
 }
 
 export default Button;

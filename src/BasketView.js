@@ -1,16 +1,16 @@
 /* eslint react/style-prop-object: 0 */
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { injectIntl, defineMessages, FormattedMessage, FormattedNumber } from 'react-intl';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { injectIntl, defineMessages, FormattedMessage, FormattedNumber } from "react-intl";
 
-import Button from './Button';
-import './BasketView.css';
+import Button from "./Button";
+import "./BasketView.css";
 
 const messages = defineMessages({
   close: {
-    id: 'BasketView.close',
-    description: 'Alternative Text for closing the basket window',
-    defaultMessage: 'Close',
+    id: "BasketView.close",
+    description: "Alternative Text for closing the basket window",
+    defaultMessage: "Close",
   }
 })
 
@@ -26,16 +26,16 @@ class BasketView extends Component {
           <tr>
             <th>
               <FormattedMessage
-                id='BasketView.item'
-                description='Label for the item in the basket'
-                defaultMessage='Item'
+                id="BasketView.item"
+                description="Label for the item in the basket"
+                defaultMessage="Item"
               />
             </th>
             <th className="price">
               <FormattedMessage
-                id='BasketView.price'
-                description='Label for the price of an item in the basket'
-                defaultMessage='Total'
+                id="BasketView.price"
+                description="Label for the price of an item in the basket"
+                defaultMessage="Total"
               />
             </th>
           </tr>
@@ -44,9 +44,9 @@ class BasketView extends Component {
           <tr>
             <td>
               <FormattedMessage
-                id='BasketView.total'
-                description='Label for the total value of the basket'
-                defaultMessage='Total'
+                id="BasketView.total"
+                description="Label for the total value of the basket"
+                defaultMessage="Total"
               />
             </td>
             <td className="price">
@@ -84,9 +84,9 @@ class BasketView extends Component {
       basket = this.showBasket();
     } else {
       basket = <FormattedMessage
-        id='BasketView.emptyBasket'
-        description='The user has an empty basket'
-        defaultMessage='Your basket is empty'
+        id="BasketView.emptyBasket"
+        description="The user has an empty basket"
+        defaultMessage="Your basket is empty"
       />
     }
 
@@ -97,9 +97,9 @@ class BasketView extends Component {
           <div className="BasketView_container">
             <h2 id="BasketView_heading">
               <FormattedMessage
-                id='BasketView.heading'
-                description='Heading for the basket view'
-                defaultMessage='Basket'
+                id="BasketView.heading"
+                description="Heading for the basket view"
+                defaultMessage="Basket"
               />
             </h2>
             <Button

@@ -1,21 +1,21 @@
 /* eslint react/style-prop-object: 0 */
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { injectIntl, defineMessages, FormattedMessage, FormattedNumber, FormattedDate } from 'react-intl';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { injectIntl, defineMessages, FormattedMessage, FormattedNumber, FormattedDate } from "react-intl";
 
-import Button from './Button';
-import './Product.css';
+import Button from "./Button";
+import "./Product.css";
 
 const messages = defineMessages({
   addItemToBasket: {
-    id: 'Product.addItemToBasket',
-    description: 'Label text for adding a named item to the basket',
-    defaultMessage: 'Add {item} to Basket',
+    id: "Product.addItemToBasket",
+    description: "Label text for adding a named item to the basket",
+    defaultMessage: "Add {item} to Basket",
   },
   removeItemFromBasket: {
-    id: 'Product.removeItemFromBasket',
-    description: 'Label text for removing a named item from the basket',
-    defaultMessage: 'Remove {item} from Basket',
+    id: "Product.removeItemFromBasket",
+    description: "Label text for removing a named item from the basket",
+    defaultMessage: "Remove {item} from Basket",
   }
 })
 
@@ -37,9 +37,9 @@ class Product extends Component {
             }
           )}>
           <FormattedMessage
-            id='Product.removeFromBasket'
-            description='Button for removing a product from a basket'
-            defaultMessage='Remove from Basket'
+            id="Product.removeFromBasket"
+            description="Button for removing a product from a basket"
+            defaultMessage="Remove from Basket"
           />
         </Button>
       );
@@ -55,9 +55,9 @@ class Product extends Component {
           )}
           >
           <FormattedMessage
-            id='Product.addToBasket'
-            description='Button for adding a product to a basket'
-            defaultMessage='Add to Basket'
+            id="Product.addToBasket"
+            description="Button for adding a product to a basket"
+            defaultMessage="Add to Basket"
           />
         </Button>
       );
@@ -73,12 +73,12 @@ class Product extends Component {
                 <FormattedDate
                   value={this.props.date}
                   hour12={true}
-                  weekday='short'
-                  year='numeric'
-                  month='long'
-                  day='2-digit'
-                  hour='numeric'
-                  minute='numeric'
+                  weekday="short"
+                  year="numeric"
+                  month="long"
+                  day="2-digit"
+                  hour="numeric"
+                  minute="numeric"
                 />
               </div>
               <span className="price">
