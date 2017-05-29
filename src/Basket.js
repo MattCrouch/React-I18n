@@ -6,6 +6,7 @@ import { injectIntl, defineMessages, FormattedNumber } from "react-intl";
 import BasketView from "./BasketView";
 import Button from "./Button";
 
+// Define translations for aria-label text
 const messages = defineMessages({
   basketValue: {
     id: "Basket.basketValue",
@@ -18,18 +19,21 @@ class Basket extends Component {
   constructor() {
     super();
     
+    // Bind add/remove baskets to use this component as context
+    this.toggleVisibility = this.toggleVisibility.bind(this);
+    this.getTotalCost = this.getTotalCost.bind(this);
+
     this.state = {
       showBasket: false
     }
-    
-    this.toggleVisibility = this.toggleVisibility.bind(this);
-    this.getTotalCost = this.getTotalCost.bind(this);
   }
 
+  // Total the value of the basket
   getTotalCost() {
     return this.props.basket.reduce((acc, item) => acc + item.price, 0);
   }
   
+  // Toggle the visibility of the basket contents
   toggleVisibility() {
     this.setState(prevState => {
       return { showBasket: !prevState.showBasket }
@@ -73,11 +77,7 @@ class Basket extends Component {
   
   Basket.propTypes = {
     basket: PropTypes.arrayOf(PropTypes.object).isRequired,
-    currency: PropTypes.string
-  }
-  
-  Basket.defaultProps = {
-    currency: "GBP"
+    currency: PropTypes.string.isRequired
   }
   
   export default injectIntl(Basket);

@@ -6,6 +6,7 @@ import { injectIntl, defineMessages, FormattedMessage, FormattedNumber, Formatte
 import Button from "./Button";
 import "./Product.css";
 
+// Define translations for aria-label text
 const messages = defineMessages({
   addItemToBasket: {
     id: "Product.addItemToBasket",

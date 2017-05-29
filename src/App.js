@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// Import React-Intl
 import { injectIntl, defineMessages } from "react-intl";
 
 import Header from "./Header";
@@ -7,11 +8,12 @@ import Product from "./Product";
 import Footer from "./Footer";
 import "./App.css";
 
+// Define translations for this component
 const messages = defineMessages({
   appTitle: {
-    id: "App.title",
-    description: "Title for the application",
-    defaultMessage: "Welcome to London Tours",
+    id: "App.title", // Unique ID for this phrase
+    description: "Title for the application", // Description used to help translators
+    defaultMessage: "Welcome to London Tours", // What to display if a translation cannot be found
   },
   riverTour: {
     id: "Products.riverTour.name",
@@ -79,13 +81,15 @@ class App extends Component {
   constructor(props) {
     super();
     
+    // Bind add/remove baskets to use this component as context
     this.addToBasket = this.addToBasket.bind(this);
     this.removeFromBasket = this.removeFromBasket.bind(this);
-    
-    this.state = {
-      currency: "GBP",
-      basket: [],
-      productList: [
+
+    // Currency used within the app
+    this.currency = "GBP";
+
+    // Products available
+    this.productList = [
       {
         id: 1,
         name: props.intl.formatMessage(messages.riverTour),
@@ -134,18 +138,25 @@ class App extends Component {
         price: 14.99,
         image: "/photos/london-by-night.jpg"
       }
-      ]
+    ];
+    
+    // Hold the state of the basket at the top level
+    this.state = {
+      basket: []
     }
   }
   
   componentDidMount() {
+    // Translate the title of the application
     document.title = this.props.intl.formatMessage(messages.appTitle);
   }
   
   addToBasket(id) {
-    const product = this.state.productList.find(product => product.id === id);
+    // Find product in basket
+    const product = this.productList.find(product => product.id === id);
     
     if(product) {
+      // Add product to basket array
       this.setState(prevState => {
         return {
           basket: [...prevState.basket, product]
@@ -155,6 +166,7 @@ class App extends Component {
   }
   
   removeFromBasket(id) {
+    // Remove the product and set the state
     this.setState(prevState => {
       return {
         basket: prevState.basket.filter(item => item.id !== id)
@@ -165,18 +177,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header basket={this.state.basket} currency={this.props.currency} />
+        <Header basket={this.state.basket} currency={this.currency} />
         
         <Products>
-          {Object.keys(this.state.productList).map(index => {
-            const product = this.state.productList[index];
+          {Object.keys(this.productList).map(index => {
+            const product = this.productList[index];
             return (
               <Product
                 key={product.id}
                 image={product.image}
                 name={product.name}
                 description={product.description}
-                currency={this.state.currency}
+                currency={this.currency}
                 price={product.price}
                 addToBasket={() => this.addToBasket(product.id)}
                 removeFromBasket={() => this.removeFromBasket(product.id)}

@@ -7,6 +7,7 @@ import Basket from "./Basket";
 import "./Header.css";
 import logo from "./logo.svg";
 
+// Define translations for alt text
 const messages = defineMessages({
   companyName: {
     id: "Header.companyName",
@@ -20,7 +21,7 @@ class Header extends Component {
     return (
       <header className="Header">
         <img src={logo} className="Header_logo" alt={this.props.intl.formatMessage(messages.companyName)} />
-        <Basket basket={this.props.basket} />
+        <Basket basket={this.props.basket} currency={this.props.currency} />
       </header>
     );
   }

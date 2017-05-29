@@ -6,6 +6,7 @@ import { injectIntl, defineMessages, FormattedMessage, FormattedNumber } from "r
 import Button from "./Button";
 import "./BasketView.css";
 
+// Define translations for aria-label text
 const messages = defineMessages({
   close: {
     id: "BasketView.close",
@@ -16,6 +17,7 @@ const messages = defineMessages({
 
 class BasketView extends Component {
   componentDidMount() {
+    // Focus the close button
     this.close.focus();
   }
 
