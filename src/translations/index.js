@@ -1,5 +1,6 @@
 import en from './en';
 import enGb from './en-gb';
+import fr from './fr';
 
 function getSubtags(languageCode) {
     return languageCode.split('-');
@@ -23,7 +24,11 @@ export function getTranslations(languageCode) {
     const code = languageCode.toLowerCase();
 
     const language = getLanguage(code);
-    const withVariants = language + '-' + getVariants(code).join('-');
+
+    let withVariants = language;
+    if(getVariants(code).length > 0) {
+        withVariants = language + '-' + getVariants(code).join('-');
+    }
 
     switch(language) {
         case 'en':
@@ -31,6 +36,8 @@ export function getTranslations(languageCode) {
                 return enGb;
             }
             return en;
+        case 'fr':
+            return fr;
         default:
             return false;
     }

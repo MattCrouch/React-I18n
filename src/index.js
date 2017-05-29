@@ -12,9 +12,22 @@ import { getTranslations } from './translations/';
 
 addLocaleData([...en, ...es, ...fr, ...it]);
 
-const language = (navigator.languages && navigator.languages[0]) ||
-                     navigator.language ||
-                     navigator.userLanguage;
+const supportedLanguages = ['en', 'en-gb', 'es', 'fr', 'it'];
+
+let language = 'en';
+
+if(navigator.languages) {
+    for(let i = 0; i < navigator.languages.length; i++) {
+        if(supportedLanguages.includes(navigator.languages[i].toLowerCase())) {
+            language = navigator.languages[i].toLowerCase();
+            break;
+        }
+    }
+} else if (navigator.language) {
+    language = navigator.language.toLowerCase();
+} else if (navigator.userLanguage) {
+    language = navigator.userLanguage.toLowerCase();
+}
 
 const messages = getTranslations(language);
 

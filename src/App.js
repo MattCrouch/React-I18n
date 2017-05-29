@@ -8,6 +8,11 @@ import Footer from './Footer';
 import './App.css';
 
 const messages = defineMessages({
+    appTitle: {
+        id: 'App.title',
+        description: 'Title for the application',
+        defaultMessage: 'Welcome to London Tours',
+    },
     riverTour: {
         id: 'Products.riverTour.name',
         description: 'Name of the River Tour product',
@@ -131,6 +136,10 @@ class App extends Component {
         }
       ]
     }
+  }
+
+  componentDidMount() {
+    document.title = this.props.intl.formatMessage(messages.appTitle);
   }
 
   addToBasket(id) {

@@ -173,7 +173,7 @@ module.exports = {
           plugins: [
             [
               "react-intl", {
-                "messagesDir": "./extracted-translations",
+                "messagesDir": "./extracted-translations/",
                 "enforceDescriptions": false
               }
             ]

@@ -1,4 +1,5 @@
 export default {
+    'App.title': 'Welcome to London Tours', //Hello
     'Header.companyName': 'London Tours',
     'Products.riverTour.name': 'River Tour',
     'Products.riverTour.description': 'See the capital from a unique perspective',
