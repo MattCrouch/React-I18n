@@ -10,50 +10,62 @@ import './App.css';
 const messages = defineMessages({
     riverTour: {
         id: 'Products.riverTour.name',
+        description: 'Name of the River Tour product',
         defaultMessage: 'River Tour',
     },
     riverTourDescription: {
         id: 'Products.riverTour.description',
+        description: 'Description of the River Tour product',
         defaultMessage: 'See the capital from a unique perspective',
     },
     busTour: {
         id: 'Products.busTour.name',
+        description: 'Name of the Bus Tour product', 
         defaultMessage: 'Bus Tour',
     },
     busTourDescription: {
         id: 'Products.busTour.description',
+        description: 'Description of the Bus Tour product',
         defaultMessage: 'Discover everything the city has to offer with an all day pass',
     },
     shard: {
         id: 'Products.shard.name',
+        description: 'Name of the Shard product',        
         defaultMessage: 'Night in the Shard',
     },
     shardDescription: {
         id: 'Products.shard.description',
+        description: 'Description of the Shard product',
         defaultMessage: 'Reach new heights and see London sparkle',
     },
     londonEye: {
         id: 'Products.londonEye.name',
+        description: 'Name of the London Eye product',
         defaultMessage: 'Private Trip on the London Eye',
     },
     londonEyeDescription: {
         id: 'Products.londonEye.description',
+        description: 'Description of the London Eye product',
         defaultMessage: 'Scan the London skyline in your own personal capsule',
     },
     museumHopper: {
         id: 'Products.museumHopper.name',
+        description: 'Name of the Museum Hopper product',
         defaultMessage: 'Must-see Museum Hopper',
     },
     museumHopperDescription: {
         id: 'Products.museumHopper.description',
+        description: 'Description of the Museum Hopper product',
         defaultMessage: 'Take in the culture at London\'s top attractions',
     },
     londonByNight: {
         id: 'Products.londonByNight.name',
+        description: 'Name of the London By Night product',
         defaultMessage: 'London By Night',
     },
     londonByNightDescription: {
         id: 'Products.londonByNight.description',
+        description: 'Description of the London By Night product',
         defaultMessage: 'Find a different side to the capital at night with its many bars and nightclubs',
     },
 });

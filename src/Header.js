@@ -10,7 +10,7 @@ import logo from './logo.svg';
 const messages = defineMessages({
     companyName: {
         id: 'Header.companyName',
-        description: 'Alternative Text for London Tours logo',        
+        description: 'Alternative Text for London Tours logo',
         defaultMessage: 'London Tours',
     }
 })
