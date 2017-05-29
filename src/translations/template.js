@@ -18,9 +18,10 @@ export default {
 	"BasketView.price": "Label for the price of an item in the basket",
 	"BasketView.total": "Label for the total value of the basket",
 	"BasketView.emptyBasket": "The user has an empty basket",
+	"BasketView.heading": "Heading for the basket view",
 	"Header.companyName": "Alternative Text for London Tours logo",
 	"Product.addItemToBasket": "Label text for adding a named item to the basket",
 	"Product.removeItemFromBasket": "Label text for removing a named item from the basket",
-	"Product.removeFromBasket": "Button for remove a product from a basket",
+	"Product.removeFromBasket": "Button for removing a product from a basket",
 	"Product.addToBasket": "Button for adding a product to a basket"
 }

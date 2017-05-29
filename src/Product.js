@@ -38,7 +38,7 @@ class Product extends Component {
           )}>
           <FormattedMessage
             id='Product.removeFromBasket'
-            description='Button for remove a product from a basket'
+            description='Button for removing a product from a basket'
             defaultMessage='Remove from Basket'
           />
         </Button>

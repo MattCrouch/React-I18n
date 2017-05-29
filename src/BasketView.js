@@ -95,7 +95,13 @@ class BasketView extends Component {
         <div className="BasketView_overlay" onClick={this.props.toggleVisibility}></div>
         <div className="BasketView" role="dialog" aria-labelledby="BasketView_heading">
           <div className="BasketView_container">
-            <h2 id="BasketView_heading">Basket</h2>
+            <h2 id="BasketView_heading">
+              <FormattedMessage
+                id='BasketView.heading'
+                description='Heading for the basket view'
+                defaultMessage='Basket'
+              />
+            </h2>
             <Button
               className="BasketView_close"
               ref={(button) => { this.close = button; }}

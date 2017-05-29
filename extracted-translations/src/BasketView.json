@@ -23,5 +23,10 @@
     "id": "BasketView.emptyBasket",
     "description": "The user has an empty basket",
     "defaultMessage": "Your basket is empty"
+  },
+  {
+    "id": "BasketView.heading",
+    "description": "Heading for the basket view",
+    "defaultMessage": "Basket"
   }
 ]
