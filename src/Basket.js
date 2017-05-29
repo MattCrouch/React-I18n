@@ -5,7 +5,6 @@ import { injectIntl, defineMessages, FormattedNumber } from "react-intl";
 
 import BasketView from "./BasketView";
 import Button from "./Button";
-import "./Basket.css";
 
 const messages = defineMessages({
   basketValue: {
