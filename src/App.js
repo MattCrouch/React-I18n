@@ -94,41 +94,41 @@ class App extends Component {
         id: 1,
         name: props.intl.formatMessage(messages.riverTour),
         description: props.intl.formatMessage(messages.riverTourDescription),
-        eventDate: new Date(),
+        date: new Date(2017,6,28,9,0,0),
         price: 24,
-        image: "/photos/river-tour.jpg"
+        image: process.env.PUBLIC_URL + "/photos/river-tour.jpg"
       },
       {
         id: 2,
         name: props.intl.formatMessage(messages.busTour),
         description: props.intl.formatMessage(messages.busTourDescription),
-        eventDate: new Date(),
+        date: new Date(2017,6,28,9,0,0),
         price: 12,
-        image: "/photos/bus-tour.jpg"
+        image: process.env.PUBLIC_URL + "/photos/bus-tour.jpg"
       },
       {
         id: 3,
         name: props.intl.formatMessage(messages.shard),
         description: props.intl.formatMessage(messages.shardDescription),
-        eventDate: new Date(),
+        date: new Date(2017,6,28,18,0,0),
         price: 15.99,
-        image: "/photos/night-in-the-shard.jpg"
+        image: process.env.PUBLIC_URL + "/photos/night-in-the-shard.jpg"
       },
       {
         id: 4,
         name: props.intl.formatMessage(messages.londonEye),
         description: props.intl.formatMessage(messages.londonEyeDescription),
-        eventDate: new Date(),
+        date: new Date(2017,6,28,12,0,0),
         price: 400,
-        image: "/photos/london-eye.jpg"
+        image: process.env.PUBLIC_URL + "/photos/london-eye.jpg"
       },
       {
         id: 5,
         name: props.intl.formatMessage(messages.museumHopper),
         description: props.intl.formatMessage(messages.museumHopperDescription),
-        eventDate: new Date(),
+        date: new Date(2017,6,29,9,0,0),
         price: 19.99,
-        image: "/photos/museum-hopper.jpg"
+        image: process.env.PUBLIC_URL + "/photos/museum-hopper.jpg"
       },
       {
         id: 6,
@@ -136,7 +136,7 @@ class App extends Component {
         description: props.intl.formatMessage(messages.londonByNightDescription),
         eventDate: new Date(),
         price: 14.99,
-        image: "/photos/london-by-night.jpg"
+        image: process.env.PUBLIC_URL + "/photos/london-by-night.jpg"
       }
     ];
     
